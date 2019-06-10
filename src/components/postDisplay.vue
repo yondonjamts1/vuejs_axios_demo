@@ -14,21 +14,23 @@
     <br>
         <p><strong>{{posts.title}}</strong></p>
         <p>{{posts.body}}</p>
-<!--    <p><strong>{{post.title}}</strong></p><br>-->
-<!--    <p>{{post.body}}</p>-->
 		<ul v-if="errors && errors.length">
-			<li v-for="error of errors" v-bind:key="error.id">
+			<li v-for="error of errors" :key="error.id">
 				{{error.message}}
 			</li>
 		</ul>
+    <commentDisplay :post-id="select_post"></commentDisplay>
 	</div>
 </template>
 
 <script>
-// import vue from 'vue'
-import axios from 'axios'
+import axios from 'axios';
+import commentDisplay from './commentDisplay.vue';
 export default {
     name: "postDisplay",
+    components: {
+        commentDisplay
+    },
     props: {
         msg: String
     },
@@ -36,13 +38,13 @@ export default {
         return {
             posts: [],
             errors: [],
-            select_post: ''
+            select_post: ""
         }
     },
 
     watch: {
         select_post: function () {
-            if (this.select_post.length !== 0) {
+            if (this.select_post !== 0) {
                 this.getPosts()
             }
         }
@@ -50,20 +52,22 @@ export default {
 
     methods: {
         getPosts: function () {
-            let self = this
+            let self = this;
+            posts:[],
             axios.get("https://jsonplaceholder.typicode.com/posts/" + self.select_post)
                 .then(response => {
                     self.posts = response.data
                 })
                 .catch(err => {
                     /* eslint-disable no-console */
-                    this.errors.push(err)
+                    this.errors.push(err);
                     console.log(err)
                     /* eslint-enable no-console */
                 })
         }
     }
 }
+
 </script>
 
 <style scoped>
