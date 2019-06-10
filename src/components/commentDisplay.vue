@@ -1,8 +1,8 @@
 <template>
   <div>
     <h1><strong>this is comment component {{postId}}</strong></h1>
-    <ul v-if="unfconmment && unfconmment.length">
-      <li v-for="comment in unfconmment">
+    <ul v-if="comments && comments.length">
+      <li v-for="comment in comments">
         <p>{{comment.body}}</p>
       </li>
     </ul>
@@ -20,7 +20,6 @@ import axios from 'axios';
 
         data(){
             return{
-                unfconmment: [],
                 comments: [],
                 errors: []
             }
@@ -28,13 +27,12 @@ import axios from 'axios';
 
         created() {
             let self = this;
-            axios.get("https://jsonplaceholder.typicode.com/comments/" + self.postId)
+            axios.get("https://jsonplaceholder.typicode.com/comments?postId=" + self.postId)
                 .then(response => {
-                    self.unfconmment = response.data
+                    self.comments = response.data
             })
                 .catch(err=> {
-                    this.erros.push(err);
-                    console.log(err)
+                    this.errors.push(err);
                 })
         }
     }
