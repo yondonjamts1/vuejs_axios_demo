@@ -3,6 +3,7 @@
     <h1><strong>this is comment component {{postId}}</strong></h1>
     <ul v-if="comments && comments.length">
       <li v-for="comment in comments">
+        <p><strong>{{comment.name}} <br> {{comment.email}}</strong></p>
         <p>{{comment.body}}</p>
       </li>
     </ul>
