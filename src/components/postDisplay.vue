@@ -53,7 +53,7 @@ export default {
     methods: {
         getPosts: function () {
             let self = this;
-            posts:[],
+            posts:[];
             axios.get("https://jsonplaceholder.typicode.com/posts/" + self.select_post)
                 .then(response => {
                     self.posts = response.data

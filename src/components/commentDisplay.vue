@@ -27,9 +27,8 @@ import axios from 'axios';
 
         watch:  {
             postId: function () {
-                if(this.postId.length !== 0){
-                    this.getComments()
-                }
+                if(this.postId.length == 0) comments = [];
+                else this.getComments();
             }
         },
 
