@@ -1,5 +1,5 @@
 <template>
-  <div>this is comment display</div>
+  <div><h1><strong>this is comment component</strong></h1></div>
 </template>
 
 <script>

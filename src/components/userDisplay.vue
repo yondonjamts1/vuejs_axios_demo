@@ -1,7 +1,7 @@
 <template>
-  <div>This is userDisplay div component
+  <div><h1><strong>this is user component</strong></h1>
     <ul v-if="users && users.length">
-      <li v-for="user of users">
+      <li v-for="user of users" v-bind:key="user.id">
         <p>ID: {{user.id}}</p>
         <p>FullName: {{user.name}}</p>
         <p>Email: {{user.email}}</p>
