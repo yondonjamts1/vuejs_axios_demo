@@ -25,15 +25,25 @@ import axios from 'axios';
             }
         },
 
-        created() {
-            let self = this;
-            axios.get("https://jsonplaceholder.typicode.com/comments?postId=" + self.postId)
-                .then(response => {
-                    self.comments = response.data
-            })
-                .catch(err=> {
-                    this.errors.push(err);
-                })
+        watch:  {
+            postId: function () {
+                if(this.postId.length !== 0){
+                    this.getComments()
+                }
+            }
+        },
+
+        methods: {
+            getComments:  function (){
+              let self = this;
+              axios.get("https://jsonplaceholder.typicode.com/comments?postId="+this.postId)
+                  .then(response => {
+                      self.comments = response.data
+              })
+                  .catch(err=> {
+                      this.errors.push(err);
+                  })
+            }
         }
     }
 </script>
