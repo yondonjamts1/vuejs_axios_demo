@@ -4,13 +4,16 @@
 		<br>
 		<input type="text" v-model="select_post"/>
 		<br>
-		<ul v-if="posts && posts.length">
+<!--		<ul v-if="posts && posts.length">-->
 <!--		<li v-for="post of posts" v-bind:key="post.id">-->
-		<li>
-			<p><strong>{{post.title}}</strong></p>
-			<p>{{post.body}}</p>
-    </li>
-		</ul>
+<!--		<li>-->
+<!--			<p><strong>{{post.title}}</strong></p>-->
+<!--			<p>{{post.body}}</p>-->
+<!--    </li>-->
+<!--		</ul>-->
+    <br>
+        <p><strong>{{posts.title}}</strong></p>
+        <p>{{posts.body}}</p>
 <!--    <p><strong>{{post.title}}</strong></p><br>-->
 <!--    <p>{{post.body}}</p>-->
 		<ul v-if="errors && errors.length">
@@ -32,7 +35,8 @@ export default {
     data() {
         return {
             posts: [],
-            errors: []
+            errors: [],
+            select_post: ''
         }
     },
 
