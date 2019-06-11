@@ -6,8 +6,6 @@ postId oruulaxad tuunii daguu post bolon post-toi xolbootoi commentuudiig xevled
 - post bur ni router-link ashiglaj tsaashaa post-n delgerenguig xaruuldag baix
 - JSON irj baigaa data deer yamar2 baidlaar filter tavij bolox talaar xarax
 
-# json_display
-
 ## Project setup
 ```
 yarn install
