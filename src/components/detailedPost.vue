@@ -1,0 +1,63 @@
+<template>
+<div>
+  <input type="text" v-model="postId">
+  <p> <strong>id:</strong> {{posts.id}}</p>
+  <p> <strong>title:</strong> {{posts.title}}</p>
+  <p> <strong>body:</strong> {{posts.body}}</p><br>
+  <hr>
+  <ul v-if="comments && comments.length">
+    <li v-for="comment in comments">
+      <p><strong>email: {{comment.email}} <br> name: {{comment.name}}</strong></p>
+      <p>{{comment.body}}</p>
+    </li>
+  </ul>
+</div>
+</template>
+
+<script>
+  import axios from 'axios'
+  export default {
+    name: "detailedPost",
+    props: {
+      postId: String,
+      default:  '0'
+    },
+    data(){
+      return{
+        posts:[],
+        postErrors:[],
+        comments:[],
+        commentErrors:[]
+      }
+    },
+    watch: {
+      postId: function () {
+        if(this.postId.length !== 0) this.getPostDetail();
+      }
+    },
+
+    methods:{
+      getPostDetail: function () {
+        let self = this;
+        axios.get("https://jsonplaceholder.typicode.com/posts/"+this.postId)
+          .then(responsePost =>{
+            self.posts = responsePost.data
+          })
+          .catch(err=>{
+            self.postErrors.push(err);
+          })
+        axios.get("https://jsonplaceholder.typicode.com/comments?postId="+this.postId)
+          .then(responseComment =>{
+            self.comments = responseComment.data
+          })
+          .catch(err=>{
+            self.commentErrors.push(err);
+          })
+      }
+    }
+  }
+</script>
+
+<style scoped>
+
+</style>

@@ -2,7 +2,7 @@
   <div>
     <h1><strong>this is comment component {{postId}}</strong></h1>
     <ul v-if="comments && comments.length">
-      <li v-for="comment in comments">
+      <li v-for="comment in comments" :key="comment.id">
         <p><strong>{{comment.name}} <br> {{comment.email}}</strong></p>
         <p>{{comment.body}}</p>
       </li>
@@ -16,7 +16,7 @@ import axios from 'axios';
         name: "commentDisplay",
         props:  {
             postId: String,
-            default: "0"
+            default: '0'
         },
 
         data(){
@@ -28,8 +28,7 @@ import axios from 'axios';
 
         watch:  {
             postId: function () {
-                if(this.postId.length == 0) comments = [];
-                else this.getComments();
+                if(this.postId.length !== 0) this.getComments();
             }
         },
 
