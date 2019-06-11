@@ -1,6 +1,6 @@
 <template>
 <div>
-  <input type="text" v-model="postId">
+<!--  <input type="text" v-model="postId">-->
   <p> <strong>id:</strong> {{posts.id}}</p>
   <p> <strong>title:</strong> {{posts.title}}</p>
   <p> <strong>body:</strong> {{posts.body}}</p><br>
