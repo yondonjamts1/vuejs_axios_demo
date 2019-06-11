@@ -57,17 +57,9 @@ export default {
     height: 100%;
     float: left;
     margin-right: 1px;
-    /*position: absolute;*/
-    top: 0;
-    bottom: 0;
 }
   .right_div{
     border: solid dodgerblue;
     flex-grow: 1;
-    /*position: absolute;
-    float: right;*/
-    top: 0;
-    bottom: 0;
-
 }
 </style>
