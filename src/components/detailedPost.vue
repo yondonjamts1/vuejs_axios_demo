@@ -5,12 +5,12 @@
   <p> <strong>title:</strong> {{posts.title}}</p>
   <p> <strong>body:</strong> {{posts.body}}</p><br>
   <hr>
-  <ul v-if="comments && comments.length">
+  <ol v-if="comments && comments.length">
     <li v-for="comment in comments" :key="comment.id">
       <p><strong>email: {{comment.email}} <br> name: {{comment.name}}</strong></p>
       <p>{{comment.body}}</p>
     </li>
-  </ul>
+  </ol>
 </div>
 </template>
 

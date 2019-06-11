@@ -1,9 +1,9 @@
 <template>
-  <ul v-if="posts && posts.length">
+  <ol v-if="posts && posts.length">
     <li v-for="post in posts" :key="post.id">
       <a @click="justDoIt(post.id)" class="postClick"> {{post.title}} </a>
     </li>
-  </ul>
+  </ol>
 </template>
 
 <script>
