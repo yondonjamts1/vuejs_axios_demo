@@ -19,11 +19,13 @@
   export default {
     name: "detailedPost",
     props: {
-      postId: Number,
-      default:  0,
+      // postId: Number,
+      // default:  0,
     },
     data(){
       return{
+        postId: Number,
+        default: 0,
         posts:[],
         postErrors:[],
         comments:[],

@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import postDisplay from './components/postDisplay.vue'
+//import postDisplay from './components/postDisplay.vue'
 //import commentDisplay from './components/commentDisplay.vue'
 import userDisplay from './components/userDisplay.vue'
 import clickablePost from './components/clickablePost'
@@ -35,13 +35,13 @@ export default {
     detailedPost
 	},
   data() {
-	  return {
-	    selectedPostId: 0,
+    return {
+      selectedPostId: 0,
     };
   },
   methods: {
-	  postIdChanged(postId) {
-	    this.selectedPostId = postId;
+    postIdChanged(postId) {
+      this.selectedPostId = postId;
     }
   }
 }
@@ -57,10 +57,17 @@ export default {
     height: 100%;
     float: left;
     margin-right: 1px;
+    /*position: absolute;*/
+    top: 0;
+    bottom: 0;
 }
   .right_div{
     border: solid dodgerblue;
     flex-grow: 1;
+    /*position: absolute;
+    float: right;*/
+    top: 0;
+    bottom: 0;
 
 }
 </style>

@@ -44,6 +44,7 @@ export default {
 
     watch: {
         select_post: function () {
+            self.posts = [];
             if (this.select_post !== 0) {
                 this.getPosts()
             }
@@ -53,7 +54,6 @@ export default {
     methods: {
         getPosts: function () {
             let self = this;
-            posts:[];
             axios.get("https://jsonplaceholder.typicode.com/posts/" + self.select_post)
                 .then(response => {
                     self.posts = response.data
