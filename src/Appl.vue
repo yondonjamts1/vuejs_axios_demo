@@ -53,7 +53,8 @@ export default {
   }
   .left_div{
     border: solid dodgerblue;
-    width: 60%;
+    width: fixed 70%;
+    height: 100%;
     float: left;
     margin-right: 1px;
 }
