@@ -14,10 +14,10 @@
 import axios from 'axios';
     export default {
         name: "commentDisplay",
-        props:  {
-            postId: String,
-            default: '0'
-        },
+        // props:  {
+        //     postId: String,
+        //     default: '0'
+        // },
 
         data(){
             return{

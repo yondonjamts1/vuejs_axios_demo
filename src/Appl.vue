@@ -8,11 +8,11 @@
 <!--		<userDisplay></userDisplay>-->
     <div class="cont">
       <div class="left_div">
-        <clickablePost></clickablePost>
+        <clickablePost @postIdChanged="postIdChanged"></clickablePost>
       </div>
       <div class="right_div">
 <!--        <postDisplay></postDisplay>-->
-        <detailedPost></detailedPost>
+        <detailedPost :post-id="selectedPostId"></detailedPost>
       </div>
     </div>
     <hr>
@@ -33,7 +33,17 @@ export default {
 		userDisplay,
     clickablePost,
     detailedPost
-	}
+	},
+  data() {
+	  return {
+	    selectedPostId: 0,
+    };
+  },
+  methods: {
+	  postIdChanged(postId) {
+	    this.selectedPostId = postId;
+    }
+  }
 }
 </script>
 
@@ -43,7 +53,7 @@ export default {
   }
   .left_div{
     border: solid dodgerblue;
-    width: 500px;
+    width: 60%;
     float: left;
     margin-right: 1px;
 }

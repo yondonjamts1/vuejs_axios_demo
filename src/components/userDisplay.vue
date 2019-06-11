@@ -33,6 +33,9 @@
               console.log(err)
               /* eslint-enable no-console */
             })
+        // this.$root.$on('eventing', postId => {
+        //     alert(postId + 1);
+        // });
     }
   }
 </script>
