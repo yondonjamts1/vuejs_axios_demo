@@ -50,14 +50,15 @@
         let self = this;
         axios.get("https://jsonplaceholder.typicode.com/posts/"+this.postId)
           .then(responsePost =>{
-            self.posts = responsePost.data
+            console.log(responsePost);
+            self.posts = responsePost.data;
           })
           .catch(err=>{
             self.postErrors.push(err);
           })
         axios.get("https://jsonplaceholder.typicode.com/comments?postId="+this.postId)
           .then(responseComment =>{
-            self.comments = responseComment.data
+            self.comments = responseComment.data;
           })
           .catch(err=>{
             self.commentErrors.push(err);
